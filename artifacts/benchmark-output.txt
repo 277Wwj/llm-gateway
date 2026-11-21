@@ -1,0 +1,9 @@
+{
+  "description": "Explicit mock; loopback HTTP; non-stream text; direct phase then gateway phase",
+  "simulated_upstream_delay_ms": 50,
+  "observed_p50_difference_ms": 17.80940000753617,
+  "observed_p95_difference_ms": 64.09339999663644,
+  "interpretation": "Difference includes scheduling, HTTP connection pools and queueing; not isolated gateway CPU overhead."
+}
+direct {"requests": 40, "concurrency": 4, "successes": 40, "success_rate": 1.0, "wall_seconds": 0.6651290000008885, "completed_per_second": 60.138709934383506, "p50_ms": 59.72749999637017, "p95_ms": 82.54430000670254}
+gateway {"requests": 40, "concurrency": 4, "successes": 40, "success_rate": 1.0, "wall_seconds": 0.8807547999967937, "completed_per_second": 45.415591263477204, "p50_ms": 77.53690000390634, "p95_ms": 146.63770000333898}

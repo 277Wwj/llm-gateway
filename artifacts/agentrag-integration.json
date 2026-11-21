@@ -1,0 +1,281 @@
+{
+  "scope": "Explicit mock protocol integration, not real LLM quality",
+  "agentrag_source": "F:\\codexproject\\agent-rag",
+  "isolated_runtime": true,
+  "user_env_edited": false,
+  "answer": {
+    "session_id": "a4fc9817-c7f8-4461-ac0d-46a839f6e840",
+    "question": "Atlas 连接池耗尽时应如何排查？",
+    "answer": "显式 mock 链路验收，引用样例原文：[7d05f2fc0652a7d0dd1dba78] ## 数据库连接池耗尽\n\n模拟的上游业务服务出现连接池耗尽时，先查看 active_connections 与 pending_requests，检查异常路径是否遗漏连接释放。样例服务连接池上限为 10，等待连接超时为 5 秒。优先修复连接泄漏或长事务，再评估容量；不要直接无限增大连接池。\n\n找到相关模拟工单 ATLAS-0001，建议先核对并复用已有工单。",
+    "citations": [
+      {
+        "chunk_id": "7d05f2fc0652a7d0dd1dba78",
+        "source": "troubleshooting.md",
+        "version": "0b2e95e35989c46a540c17f959239d761610c9a405482a0c5a8e3870e69592a3",
+        "section": "Atlas 故障排查手册（虚构样例） > 数据库连接池耗尽",
+        "line_start": 5,
+        "line_end": 7,
+        "page": null,
+        "text": "## 数据库连接池耗尽\n\n模拟的上游业务服务出现连接池耗尽时，先查看 active_connections 与 pending_requests，检查异常路径是否遗漏连接释放。样例服务连接池上限为 10，等待连接超时为 5 秒。优先修复连接泄漏或长事务，再评估容量；不要直接无限增大连接池。",
+        "score": 20.2164229,
+        "retrieval_mode": "lexical",
+        "embedding_mode": null
+      }
+    ],
+    "related_tickets": [
+      {
+        "id": "ATLAS-0001",
+        "title": "[样例] Atlas 网关 504 与连接池耗尽排查",
+        "description": "模拟工单：网关出现 504，检查 request_id 对应日志、下游延迟和连接池等待时间。已有跟进事项：核对连接池上限与超时预算，避免直接无限增大超时。",
+        "status": "open",
+        "simulated": true,
+        "is_sample": true,
+        "session_id": null,
+        "draft_version": null,
+        "created_at": "2026-11-19T13:39:19.346090+00:00",
+        "score": 0.454545
+      }
+    ],
+    "draft": null,
+    "ticket": null,
+    "status": "complete",
+    "mode": "chat_completions",
+    "simulated": true,
+    "generation": {
+      "provider": "chat_completions",
+      "model": "demo-chat",
+      "answer_status": "answered"
+    },
+    "retrieval": {
+      "mode": "lexical",
+      "embedding_provider": "hash",
+      "embedding_model": null
+    },
+    "embedding_provider": "hash",
+    "retrieval_mode": "lexical",
+    "current_service": {
+      "provider": "chat_completions",
+      "retrieval_mode": "lexical"
+    },
+    "tool_trace": [
+      {
+        "tool": "search_docs",
+        "result_count": 1
+      },
+      {
+        "tool": "search_tickets",
+        "result_count": 1
+      }
+    ],
+    "steps": 3
+  },
+  "draft": {
+    "session_id": "20fffe60-8ff1-42fb-bd77-36dfe545f642",
+    "question": "Atlas 连接池耗尽时应如何排查？",
+    "answer": "显式 mock 链路验收，引用样例原文：[7d05f2fc0652a7d0dd1dba78] ## 数据库连接池耗尽\n\n模拟的上游业务服务出现连接池耗尽时，先查看 active_connections 与 pending_requests，检查异常路径是否遗漏连接释放。样例服务连接池上限为 10，等待连接超时为 5 秒。优先修复连接泄漏或长事务，再评估容量；不要直接无限增大连接池。\n\n找到相关模拟工单 ATLAS-0001，建议先核对并复用已有工单。",
+    "citations": [
+      {
+        "chunk_id": "7d05f2fc0652a7d0dd1dba78",
+        "source": "troubleshooting.md",
+        "version": "0b2e95e35989c46a540c17f959239d761610c9a405482a0c5a8e3870e69592a3",
+        "section": "Atlas 故障排查手册（虚构样例） > 数据库连接池耗尽",
+        "line_start": 5,
+        "line_end": 7,
+        "page": null,
+        "text": "## 数据库连接池耗尽\n\n模拟的上游业务服务出现连接池耗尽时，先查看 active_connections 与 pending_requests，检查异常路径是否遗漏连接释放。样例服务连接池上限为 10，等待连接超时为 5 秒。优先修复连接泄漏或长事务，再评估容量；不要直接无限增大连接池。",
+        "score": 20.2164229,
+        "retrieval_mode": "lexical",
+        "embedding_mode": null
+      }
+    ],
+    "related_tickets": [
+      {
+        "id": "ATLAS-0001",
+        "title": "[样例] Atlas 网关 504 与连接池耗尽排查",
+        "description": "模拟工单：网关出现 504，检查 request_id 对应日志、下游延迟和连接池等待时间。已有跟进事项：核对连接池上限与超时预算，避免直接无限增大超时。",
+        "status": "open",
+        "simulated": true,
+        "is_sample": true,
+        "session_id": null,
+        "draft_version": null,
+        "created_at": "2026-11-19T13:39:19.346090+00:00",
+        "score": 0.454545
+      }
+    ],
+    "draft": {
+      "session_id": "20fffe60-8ff1-42fb-bd77-36dfe545f642",
+      "title": "Atlas 连接池耗尽时应如何排查？",
+      "description": "【本地模拟工单草稿】\n问题：Atlas 连接池耗尽时应如何排查？\n\n显式 mock 链路验收，引用样例原文：[7d05f2fc0652a7d0dd1dba78] ## 数据库连接池耗尽\n\n模拟的上游业务服务出现连接池耗尽时，先查看 active_connections 与 pending_requests，检查异常路径是否遗漏连接释放。样例服务连接池上限为 10，等待连接超时为 5 秒。优先修复连接泄漏或长事务，再评估容量；不要直接无限增大连接池。\n\n找到相关模拟工单 ATLAS-0001，建议先核对并复用已有工单。",
+      "version": 1,
+      "status": "pending",
+      "simulated": true,
+      "created_at": "2026-11-19T13:39:19.932866+00:00",
+      "updated_at": "2026-11-19T13:39:19.932866+00:00"
+    },
+    "ticket": null,
+    "status": "awaiting_confirmation",
+    "mode": "chat_completions",
+    "simulated": true,
+    "generation": {
+      "provider": "chat_completions",
+      "model": "demo-chat",
+      "answer_status": "answered"
+    },
+    "retrieval": {
+      "mode": "lexical",
+      "embedding_provider": "hash",
+      "embedding_model": null
+    },
+    "embedding_provider": "hash",
+    "retrieval_mode": "lexical",
+    "current_service": {
+      "provider": "chat_completions",
+      "retrieval_mode": "lexical"
+    },
+    "tool_trace": [
+      {
+        "tool": "search_docs",
+        "result_count": 1
+      },
+      {
+        "tool": "search_tickets",
+        "result_count": 1
+      }
+    ],
+    "steps": 4
+  },
+  "confirmed": {
+    "session_id": "20fffe60-8ff1-42fb-bd77-36dfe545f642",
+    "question": "Atlas 连接池耗尽时应如何排查？",
+    "answer": "显式 mock 链路验收，引用样例原文：[7d05f2fc0652a7d0dd1dba78] ## 数据库连接池耗尽\n\n模拟的上游业务服务出现连接池耗尽时，先查看 active_connections 与 pending_requests，检查异常路径是否遗漏连接释放。样例服务连接池上限为 10，等待连接超时为 5 秒。优先修复连接泄漏或长事务，再评估容量；不要直接无限增大连接池。\n\n找到相关模拟工单 ATLAS-0001，建议先核对并复用已有工单。",
+    "citations": [
+      {
+        "chunk_id": "7d05f2fc0652a7d0dd1dba78",
+        "source": "troubleshooting.md",
+        "version": "0b2e95e35989c46a540c17f959239d761610c9a405482a0c5a8e3870e69592a3",
+        "section": "Atlas 故障排查手册（虚构样例） > 数据库连接池耗尽",
+        "line_start": 5,
+        "line_end": 7,
+        "page": null,
+        "text": "## 数据库连接池耗尽\n\n模拟的上游业务服务出现连接池耗尽时，先查看 active_connections 与 pending_requests，检查异常路径是否遗漏连接释放。样例服务连接池上限为 10，等待连接超时为 5 秒。优先修复连接泄漏或长事务，再评估容量；不要直接无限增大连接池。",
+        "score": 20.2164229,
+        "retrieval_mode": "lexical",
+        "embedding_mode": null
+      }
+    ],
+    "related_tickets": [
+      {
+        "id": "ATLAS-0001",
+        "title": "[样例] Atlas 网关 504 与连接池耗尽排查",
+        "description": "模拟工单：网关出现 504，检查 request_id 对应日志、下游延迟和连接池等待时间。已有跟进事项：核对连接池上限与超时预算，避免直接无限增大超时。",
+        "status": "open",
+        "simulated": true,
+        "is_sample": true,
+        "session_id": null,
+        "draft_version": null,
+        "created_at": "2026-11-19T13:39:19.346090+00:00",
+        "score": 0.454545
+      }
+    ],
+    "draft": {
+      "session_id": "20fffe60-8ff1-42fb-bd77-36dfe545f642",
+      "title": "Atlas 连接池耗尽时应如何排查？",
+      "description": "【本地模拟工单草稿】\n问题：Atlas 连接池耗尽时应如何排查？\n\n显式 mock 链路验收，引用样例原文：[7d05f2fc0652a7d0dd1dba78] ## 数据库连接池耗尽\n\n模拟的上游业务服务出现连接池耗尽时，先查看 active_connections 与 pending_requests，检查异常路径是否遗漏连接释放。样例服务连接池上限为 10，等待连接超时为 5 秒。优先修复连接泄漏或长事务，再评估容量；不要直接无限增大连接池。\n\n找到相关模拟工单 ATLAS-0001，建议先核对并复用已有工单。",
+      "version": 1,
+      "status": "created",
+      "simulated": true,
+      "created_at": "2026-11-19T13:39:19.932866+00:00",
+      "updated_at": "2026-11-19T13:39:20.034296+00:00"
+    },
+    "ticket": {
+      "id": "ATLAS-0003",
+      "title": "Atlas 连接池耗尽时应如何排查？",
+      "description": "【本地模拟工单草稿】\n问题：Atlas 连接池耗尽时应如何排查？\n\n显式 mock 链路验收，引用样例原文：[7d05f2fc0652a7d0dd1dba78] ## 数据库连接池耗尽\n\n模拟的上游业务服务出现连接池耗尽时，先查看 active_connections 与 pending_requests，检查异常路径是否遗漏连接释放。样例服务连接池上限为 10，等待连接超时为 5 秒。优先修复连接泄漏或长事务，再评估容量；不要直接无限增大连接池。\n\n找到相关模拟工单 ATLAS-0001，建议先核对并复用已有工单。",
+      "status": "open",
+      "simulated": true,
+      "is_sample": false,
+      "session_id": "20fffe60-8ff1-42fb-bd77-36dfe545f642",
+      "draft_version": 1,
+      "created_at": "2026-11-19T13:39:20.034296+00:00"
+    },
+    "status": "complete",
+    "mode": "chat_completions",
+    "simulated": true,
+    "generation": {
+      "provider": "chat_completions",
+      "model": "demo-chat",
+      "answer_status": "answered"
+    },
+    "retrieval": {
+      "mode": "lexical",
+      "embedding_provider": "hash",
+      "embedding_model": null
+    },
+    "embedding_provider": "hash",
+    "retrieval_mode": "lexical",
+    "current_service": {
+      "provider": "chat_completions",
+      "retrieval_mode": "lexical"
+    },
+    "tool_trace": [
+      {
+        "tool": "search_docs",
+        "result_count": 1
+      },
+      {
+        "tool": "search_tickets",
+        "result_count": 1
+      },
+      {
+        "tool": "create_ticket",
+        "result_count": 1
+      }
+    ],
+    "steps": 6
+  },
+  "repeat_same_ticket": true,
+  "mock_stats": {
+    "mode": "mock",
+    "active": 0,
+    "requests": 2,
+    "completed": 2,
+    "cancelled": 0,
+    "failed": 0,
+    "authenticated": 2,
+    "by_model": {
+      "mock-primary": 2
+    }
+  },
+  "gateway_state": {
+    "providers": {
+      "primary": {
+        "gate": {
+          "active": 0,
+          "waiting": 0
+        },
+        "breaker": {
+          "state": "closed",
+          "samples": 2,
+          "failures": 0,
+          "probe_inflight": false,
+          "inflight": 0,
+          "retry_after": 0.0
+        }
+      },
+      "secondary": {
+        "gate": {
+          "active": 0,
+          "waiting": 0
+        },
+        "breaker": {
+          "state": "closed",
+          "samples": 0,
+          "failures": 0,
+          "probe_inflight": false,
+          "inflight": 0,
+          "retry_after": 0.0
+        }
+      }
+    }
+  }
+}

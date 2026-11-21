@@ -1,0 +1,16 @@
+.venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+.pytest_cache/
+*.egg-info/
+artifacts/agentrag-runtime/
+artifacts/redis-build/
+artifacts/agentrag-logs/
+artifacts/redis-stack-*/
+artifacts/redis-unavailable-stack/
+*.py[cod]
+*.log
+.coverage
+htmlcov/

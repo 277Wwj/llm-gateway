@@ -1,0 +1,1 @@
+{"passed": true, "scenarios": 12, "output": "artifacts\\faults.json", "harness_failure": null}

@@ -1,0 +1,803 @@
+{
+  "mode": "explicit_mock_real_loopback_http",
+  "real_llm": false,
+  "recorded_at_utc": "2026-11-19T13:42:44.311988+00:00",
+  "scenarios": [
+    {
+      "scenario": "upstream_500_before_output",
+      "status": 200,
+      "elapsed_seconds": 0.15147849999630125,
+      "request_id": "c08fd9727cde4f9d95733b15b4337691",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 2,
+        "completed": 1,
+        "cancelled": 0,
+        "failed": 1,
+        "authenticated": 2,
+        "by_model": {
+          "mock-primary": 1,
+          "mock-secondary": 1
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49226.218,
+            "request_id": "c08fd9727cde4f9d95733b15b4337691"
+          },
+          {
+            "model": "mock-secondary",
+            "monotonic_started": 49226.296,
+            "request_id": "c08fd9727cde4f9d95733b15b4337691"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 1,
+              "failures": 1,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 1,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "data: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"mock \"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"response\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}]}\n\ndata: [DONE]\n\n",
+      "expected": {
+        "status": 200,
+        "attempts": 2,
+        "done": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "upstream_429_before_output",
+      "status": 200,
+      "elapsed_seconds": 0.09127300000545802,
+      "request_id": "245da370a6574ad9ad9aaea5a266f323",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 2,
+        "completed": 1,
+        "cancelled": 0,
+        "failed": 1,
+        "authenticated": 2,
+        "by_model": {
+          "mock-primary": 1,
+          "mock-secondary": 1
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49226.343,
+            "request_id": "245da370a6574ad9ad9aaea5a266f323"
+          },
+          {
+            "model": "mock-secondary",
+            "monotonic_started": 49226.421,
+            "request_id": "245da370a6574ad9ad9aaea5a266f323"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 2,
+              "failures": 2,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 2,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "data: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"mock \"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"response\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}]}\n\ndata: [DONE]\n\n",
+      "expected": {
+        "status": 200,
+        "attempts": 2,
+        "done": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "sse_error_before_first_event",
+      "status": 200,
+      "elapsed_seconds": 0.089102300000377,
+      "request_id": "62fa992a5d1d40e293536b2a7c20f1f4",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 2,
+        "completed": 1,
+        "cancelled": 0,
+        "failed": 1,
+        "authenticated": 2,
+        "by_model": {
+          "mock-primary": 1,
+          "mock-secondary": 1
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49226.437,
+            "request_id": "62fa992a5d1d40e293536b2a7c20f1f4"
+          },
+          {
+            "model": "mock-secondary",
+            "monotonic_started": 49226.515,
+            "request_id": "62fa992a5d1d40e293536b2a7c20f1f4"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 3,
+              "failures": 3,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 3,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "data: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"mock \"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"response\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}]}\n\ndata: [DONE]\n\n",
+      "expected": {
+        "status": 200,
+        "attempts": 2,
+        "done": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "sse_eof_before_first_event",
+      "status": 200,
+      "elapsed_seconds": 0.08863869999913732,
+      "request_id": "3e513fe8088440c99cb632bcf080154f",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 2,
+        "completed": 1,
+        "cancelled": 0,
+        "failed": 1,
+        "authenticated": 2,
+        "by_model": {
+          "mock-primary": 1,
+          "mock-secondary": 1
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49226.531,
+            "request_id": "3e513fe8088440c99cb632bcf080154f"
+          },
+          {
+            "model": "mock-secondary",
+            "monotonic_started": 49226.609,
+            "request_id": "3e513fe8088440c99cb632bcf080154f"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 4,
+              "failures": 4,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 4,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "data: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"mock \"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"response\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-secondary\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}]}\n\ndata: [DONE]\n\n",
+      "expected": {
+        "status": 200,
+        "attempts": 2,
+        "done": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "sse_eof_after_first_content_no_switch",
+      "status": 200,
+      "elapsed_seconds": 0.01959290000377223,
+      "request_id": "81937595ab874decac41eedd5cec506b",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 1,
+        "completed": 0,
+        "cancelled": 0,
+        "failed": 1,
+        "authenticated": 1,
+        "by_model": {
+          "mock-primary": 1
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49226.625,
+            "request_id": "81937595ab874decac41eedd5cec506b"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "open",
+              "samples": 5,
+              "failures": 5,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 5.0
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 4,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "data: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-primary\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion.chunk\",\"created\":0,\"model\":\"mock-primary\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"first\"},\"finish_reason\":null}]}\n\nevent: error\ndata: {\"error\": {\"code\": \"upstream_stream_error\", \"request_id\": \"81937595ab874decac41eedd5cec506b\"}}\n\n",
+      "expected": {
+        "status": 200,
+        "attempts": 1,
+        "done": false
+      },
+      "passed": true
+    },
+    {
+      "scenario": "client_disconnect_after_first_content",
+      "status": 200,
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 1,
+        "completed": 0,
+        "cancelled": 1,
+        "failed": 1,
+        "authenticated": 1,
+        "by_model": {
+          "mock-secondary": 1
+        },
+        "calls": [
+          {
+            "model": "mock-secondary",
+            "monotonic_started": 49227.218,
+            "request_id": "cb9f1f6899a4484799324a891bfa8f2c"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "open",
+              "samples": 5,
+              "failures": 5,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 4.2189999999973224
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 4,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "passed": true
+    },
+    {
+      "scenario": "concurrency_1_queue_1_six_requests",
+      "statuses": [
+        200,
+        200,
+        503,
+        503,
+        503,
+        503
+      ],
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 2,
+        "completed": 2,
+        "cancelled": 0,
+        "failed": 0,
+        "authenticated": 2,
+        "by_model": {
+          "mock-primary": 2
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49232.078,
+            "request_id": "cd9e4b1fa77045cca96465a022e68f94"
+          },
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49232.375,
+            "request_id": "31a361b747d448d699bc9c1d7325c071"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 2,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 0,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "passed": true
+    },
+    {
+      "scenario": "first_event_total_deadline",
+      "status": 504,
+      "elapsed_seconds": 0.27316399999835994,
+      "request_id": "7976a93fa5d74787b8449cd696c8942b",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 1,
+        "completed": 0,
+        "cancelled": 1,
+        "failed": 1,
+        "authenticated": 1,
+        "by_model": {
+          "mock-primary": 1
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49237.218,
+            "request_id": "7976a93fa5d74787b8449cd696c8942b"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 1,
+              "failures": 1,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 0,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "{\"error\":{\"code\":\"deadline_exceeded\",\"message\":\"deadline_exceeded\",\"request_id\":\"7976a93fa5d74787b8449cd696c8942b\"}}",
+      "expected": {
+        "status": 504,
+        "attempts": 1,
+        "max_seconds": 0.8
+      },
+      "passed": true
+    },
+    {
+      "scenario": "breaker_failure_1",
+      "status": 502,
+      "elapsed_seconds": 0.04071039999689674,
+      "request_id": "c1c61f1a4aac438fb32f4087085682bf",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 1,
+        "completed": 0,
+        "cancelled": 0,
+        "failed": 1,
+        "authenticated": 1,
+        "by_model": {
+          "mock-primary": 1
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49241.89,
+            "request_id": "c1c61f1a4aac438fb32f4087085682bf"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 1,
+              "failures": 1,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 0,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "{\"error\":{\"code\":\"upstream_http_500\",\"message\":\"upstream_http_500\",\"request_id\":\"c1c61f1a4aac438fb32f4087085682bf\"}}",
+      "expected": {
+        "status": 502,
+        "attempts": 1
+      },
+      "passed": true
+    },
+    {
+      "scenario": "breaker_failure_2",
+      "status": 502,
+      "elapsed_seconds": 0.013764700001047458,
+      "request_id": "05ddc200575b4d2fb974d3a4c0d2ec9e",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 2,
+        "completed": 0,
+        "cancelled": 0,
+        "failed": 2,
+        "authenticated": 2,
+        "by_model": {
+          "mock-primary": 2
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49241.89,
+            "request_id": "c1c61f1a4aac438fb32f4087085682bf"
+          },
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49241.906,
+            "request_id": "05ddc200575b4d2fb974d3a4c0d2ec9e"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "open",
+              "samples": 2,
+              "failures": 2,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.25
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 0,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "{\"error\":{\"code\":\"upstream_http_500\",\"message\":\"upstream_http_500\",\"request_id\":\"05ddc200575b4d2fb974d3a4c0d2ec9e\"}}",
+      "expected": {
+        "status": 502,
+        "attempts": 2
+      },
+      "passed": true
+    },
+    {
+      "scenario": "breaker_open_rejects_without_upstream",
+      "status": 503,
+      "elapsed_seconds": 0.001397199994244147,
+      "request_id": "a2a7f01affbb4cd68272e7b0688bb65d",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 2,
+        "completed": 0,
+        "cancelled": 0,
+        "failed": 2,
+        "authenticated": 2,
+        "by_model": {
+          "mock-primary": 2
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49241.89,
+            "request_id": "c1c61f1a4aac438fb32f4087085682bf"
+          },
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49241.906,
+            "request_id": "05ddc200575b4d2fb974d3a4c0d2ec9e"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "open",
+              "samples": 2,
+              "failures": 2,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.23500000000058208
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 0,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "{\"error\":{\"code\":\"circuit_open\",\"message\":\"circuit_open\",\"request_id\":\"a2a7f01affbb4cd68272e7b0688bb65d\"}}",
+      "expected": {
+        "status": 503,
+        "attempts": 2
+      },
+      "passed": true
+    },
+    {
+      "scenario": "breaker_half_open_probe_recovers",
+      "status": 200,
+      "elapsed_seconds": 0.013548400005674921,
+      "request_id": "d6fe4c8511f64a4ea110b494d85d11cd",
+      "mock_stats": {
+        "mode": "mock",
+        "active": 0,
+        "requests": 1,
+        "completed": 1,
+        "cancelled": 0,
+        "failed": 0,
+        "authenticated": 1,
+        "by_model": {
+          "mock-primary": 1
+        },
+        "calls": [
+          {
+            "model": "mock-primary",
+            "monotonic_started": 49242.234,
+            "request_id": "d6fe4c8511f64a4ea110b494d85d11cd"
+          }
+        ]
+      },
+      "gateway_state": {
+        "providers": {
+          "primary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 0,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          },
+          "secondary": {
+            "gate": {
+              "active": 0,
+              "waiting": 0
+            },
+            "breaker": {
+              "state": "closed",
+              "samples": 0,
+              "failures": 0,
+              "probe_inflight": false,
+              "inflight": 0,
+              "retry_after": 0.0
+            }
+          }
+        }
+      },
+      "response": "{\"id\":\"chatcmpl-mock\",\"object\":\"chat.completion\",\"created\":0,\"model\":\"mock-primary\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Explicit mock response; no real LLM was called.\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":1,\"completion_tokens\":1,\"total_tokens\":2}}",
+      "expected": {
+        "status": 200,
+        "attempts": 1
+      },
+      "passed": true
+    }
+  ],
+  "harness_failure": null,
+  "passed": true
+}

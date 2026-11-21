@@ -1,0 +1,7 @@
+{
+  "providers": [
+    {"name":"primary","base_url":"http://127.0.0.1:9101/v1","model":"mock-primary","api_key_env":"MOCK_PRIMARY_KEY","capabilities":["text","tools","json","stream"],"concurrency":4,"queue_capacity":16,"rpm":600},
+    {"name":"secondary","base_url":"http://127.0.0.1:9101/v1","model":"mock-secondary","api_key_env":"MOCK_SECONDARY_KEY","capabilities":["text","tools","json","stream"],"concurrency":4,"queue_capacity":16,"rpm":600}
+  ],
+  "routes":{"demo-chat":["primary","secondary"],"primary-only":["primary"]}
+}

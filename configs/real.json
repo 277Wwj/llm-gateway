@@ -1,0 +1,7 @@
+{
+  "providers": [
+    {"name":"openai","base_url":"https://api.openai.com/v1","model":"gpt-4.1-mini","api_key_env":"OPENAI_API_KEY","capabilities":["text","tools","json","stream"],"concurrency":4,"queue_capacity":16,"rpm":60},
+    {"name":"deepseek","base_url":"https://api.deepseek.com","model":"deepseek-flash","api_key_env":"DEEPSEEK_API_KEY","extra_body":{"thinking":{"type":"disabled"}},"capabilities":["text","tools","json","stream"],"concurrency":4,"queue_capacity":16,"rpm":60}
+  ],
+  "routes":{"balanced-chat":["openai","deepseek"],"openai-chat":["openai"],"deepseek-chat":["deepseek"]}
+}
